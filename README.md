@@ -1,6 +1,22 @@
 # NetlifyPushWebpackPlugin
 Generate HTTP2 Server Push `_headers` file for Netlify using HtmlWebpackPlugin.
 
+For use with Webpack 4 and HtmlWebpackPlugin 4.0.0-alpha.2
+
+## Installation
+
+```
+npm i netlify-push-webpack-plugin
+```
+
+or 
+
+
+```
+yarn add netlify-push-webpack-plugin
+```
+
+
 ## Usage
 
 Option | Type | Description
