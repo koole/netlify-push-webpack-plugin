@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin(),
     new NetlifyServerPushPlugin({
-      headersFile: "_headers",
+      filename: "_headers",
       headers: [
         "  X-Frame-Options: DENY",
         "  Referrer-Policy: strict-origin-when-cross-origin",
