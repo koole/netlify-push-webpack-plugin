@@ -39,7 +39,7 @@ module.exports = {
         "/assets/*",
         "  Cache-Control: public, max-age:360000"
       ],
-      filter: [/\.(js|css)$/]
+      include: 'css'
     })
   ]
 };
