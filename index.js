@@ -5,10 +5,15 @@ class NetlifyPushWebpackPlugin {
     this.options = options;
   }
 
-  buildHeaders({ js, css }, headers = []) {
+  buildHeaders({ js, css }, options = {}) {
+    const { headers } = this.options || [];
+    const { include } = this.options || 'all';
+
     const scripts = js.map(f => `  Link: <${f}>; rel=preload; as=script`);
     const styles = css.map(f => `  Link: <${f}>; rel=preload; as=style`);
-    return ["/*", ...scripts, ...styles, ...headers].join("\n");
+    return include === 'all' ? ["/*", ...scripts, ...styles, ...headers].join("\n")
+      : include === 'js' ? ["/*", ...scripts, ...headers].join("\n")
+      : include === 'css' ? ["/*", ...styles, ...headers].join("\n");
   }
 
   apply(compiler) {
@@ -16,7 +21,7 @@ class NetlifyPushWebpackPlugin {
       HtmlWebpackPlugin.getHooks(compilation).beforeAssetTagGeneration.tapAsync(
         "NetlifyPushWebpackPlugin",
         (data, cb) => {
-          const filedata = this.buildHeaders(data.assets, this.options.headers);
+          const filedata = this.buildHeaders(data.assets, this.options);
           compilation.assets[`${this.options.filename}`] = {
             source: () => filedata,
             size: () => filedata.length
