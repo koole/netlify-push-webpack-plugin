@@ -23,6 +23,7 @@ Option | Type | Description
 --- | --- | ---
 `filename` | String | Name and path of the generated headers file
 `headers` | Array | Other headers to be added to the file
+`include` | String | Only include 'css', 'js' or 'all' (default: 'all')
 
 ## Example
 
@@ -37,7 +38,8 @@ module.exports = {
         "  Referrer-Policy: strict-origin-when-cross-origin",
         "/assets/*",
         "  Cache-Control: public, max-age:360000"
-      ]
+      ],
+      filter: [/\.(js|css)$/]
     })
   ]
 };
