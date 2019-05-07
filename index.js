@@ -7,7 +7,7 @@ class NetlifyPushWebpackPlugin {
 
   buildHeaders({ js, css }, headers = []) {
     const scripts = js.map(f => `  Link: <${f}>; rel=preload; as=script`);
-    const styles = css.map(f => `  Link: <${f}>; rel=preload; as=stylesheet`);
+    const styles = css.map(f => `  Link: <${f}>; rel=preload; as=style`);
     return ["/*", ...scripts, ...styles, ...headers].join("\n");
   }
 
