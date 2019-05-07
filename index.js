@@ -10,7 +10,7 @@ class NetlifyPushWebpackPlugin {
     const { include } = this.options || 'all';
 
     const scripts = js.map(f => `  Link: <${f}>; rel=preload; as=script`);
-    const styles = css.map(f => `  Link: <${f}>; rel=preload; as=stylesheet`);
+    const styles = css.map(f => `  Link: <${f}>; rel=preload; as=style`);
     return include === 'all' ? ["/*", ...scripts, ...styles, ...headers].join("\n")
       : include === 'js' ? ["/*", ...scripts, ...headers].join("\n")
       : include === 'css' ? ["/*", ...styles, ...headers].join("\n");
