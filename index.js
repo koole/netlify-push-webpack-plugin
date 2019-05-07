@@ -5,15 +5,20 @@ class NetlifyPushWebpackPlugin {
     this.options = options;
   }
 
-  buildHeaders({ js, css }, options = {}) {
-    const { headers } = this.options || [];
-    const { include } = this.options || 'all';
+  buildHeaders({ js, css }) {
+    const headers = this.options.headers || [];
+    const include = this.options.include || "all";
 
     const scripts = js.map(f => `  Link: <${f}>; rel=preload; as=script`);
     const styles = css.map(f => `  Link: <${f}>; rel=preload; as=style`);
-    return include === 'all' ? ["/*", ...scripts, ...styles, ...headers].join("\n")
-      : include === 'js' ? ["/*", ...scripts, ...headers].join("\n")
-      : include === 'css' ? ["/*", ...styles, ...headers].join("\n");
+
+    if(include === "all")
+      return ["/*", ...scripts, ...styles, ...headers].join("\n")
+    if(include === "js")
+      return ["/*", ...scripts, ...headers].join("\n")
+    if(include === "css")
+      return ["/*", ...styles, ...headers].join("\n")
+    return ""
   }
 
   apply(compiler) {
