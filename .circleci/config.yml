@@ -8,9 +8,9 @@ jobs:
      - run:
          name: Run tests
          command: |
-           yarn add ava tap-xunit
+           yarn add tap-xunit
            mkdir -p ~/reports
-           ava tests/test.js --tap | tap-xunit > ~/reports/ava.xml
+           yarn run test --tap | ./node_modules/tap-xunit/bin/tap-xunit > ~/reports/ava.xml
          when: always
      - store_test_results:
          path: ~/reports
