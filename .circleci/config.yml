@@ -2,7 +2,7 @@ version: 2.1
 jobs:
  build:
    docker:
-     - image: circleci/node:10.15.3
+     - image: alpine:3.7
    steps:
      - checkout
      - run:
@@ -15,14 +15,3 @@ jobs:
          command: |
            ls -al
            echo '^^^That should look familiar^^^'
-     - run:
-         name: Running in a Unique Container
-         command: |
-           node -v
-    - run:
-        name: Install dependencies
-        command: |
-          npm install
-    - run:
-        name: test
-        command: npm test
