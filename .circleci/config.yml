@@ -6,20 +6,14 @@ jobs:
    steps:
      - checkout
      - run:
-         name: The First Step
+         name: Run tests
          command: |
-           echo 'Hello World!'
-           echo 'This is the delivery pipeline'
-     - run:
-         name: Code Has Arrived
-         command: |
-           ls -al
-           echo '^^^That should look familiar^^^'
-     - run:
-         name: Node version
-         command: |
-           node -v
-     - run:
-         name: Yarn version
-         command: |
-           yarn -v
+           yarn add ava tap-xunit
+           mkdir -p ~/reports
+           ava tests/test.js --tap | tap-xunit > ~/reports/ava.xml
+         when: always
+     - store_test_results:
+         path: ~/reports
+     - store_artifacts:
+         path: ~/reports          
+
