@@ -1,5 +1,7 @@
 # NetlifyPushWebpackPlugin
 
+[![CircleCI](https://circleci.com/gh/koole/netlify-push-webpack-plugin.svg?style=svg)](https://circleci.com/gh/koole/netlify-push-webpack-plugin)
+
 Generate HTTP2 Server Push `_headers` file for Netlify using HtmlWebpackPlugin.
 
 For use with Webpack 4 and HtmlWebpackPlugin 4.0.0-beta.5
