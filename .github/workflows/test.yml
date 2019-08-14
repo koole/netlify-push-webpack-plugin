@@ -1,4 +1,4 @@
-name: Node CI
+name: Tests
 
 on: [push]
 
@@ -18,7 +18,7 @@ jobs:
       with:
         version: ${{ matrix.node_version }}
         
-    - name: npm install and test
+    - name: yarn install and run tests
       run: |
-        npm install
-        npm test
+        yarn install
+        yarn run test
