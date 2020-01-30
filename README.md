@@ -66,5 +66,5 @@ will result in a headers file looking something like this:
 Tests are ran using using Ava with the following command:
 
 ```
-yarn run test
+npm run test
 ```

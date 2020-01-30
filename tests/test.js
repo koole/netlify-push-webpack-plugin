@@ -1,13 +1,11 @@
-import test from "ava";
-import fs from "fs";
-import rimraf from "rimraf"
-
-import webpack from "webpack";
-
-import all_options from "./all/webpack.config.js";
-import css_options from "./css/webpack.config.js";
-import js_options from "./js/webpack.config.js";
-import custom_headers_options from "./custom_headers/webpack.config.js";
+var test = require("ava");
+var fs = require("fs");
+var rimraf = require("rimraf");
+var webpack = require("webpack");
+var all_options = require("./all/webpack.config.js");
+var css_options = require("./css/webpack.config.js");
+var js_options = require("./js/webpack.config.js");
+var custom_headers_options = require("./custom_headers/webpack.config.js");
 
 // Fails on webpack errors and missing files
 function webpackTest(test, errors, stats) {
