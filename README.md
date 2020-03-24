@@ -2,7 +2,7 @@
 
 Generate HTTP2 Server Push `_headers` file for Netlify using HtmlWebpackPlugin.
 
-For use with Webpack 4 and HtmlWebpackPlugin 4.0.0-beta.5 or later
+For use with Webpack 4 and HtmlWebpackPlugin 4
 
 ## Installation
 
