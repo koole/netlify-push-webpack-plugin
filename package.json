@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "ava": "^3.0.0",
-    "css-loader": "^4.0.0",
+    "css-loader": "^5.0.0",
     "html-webpack-plugin": "^4.0.0",
     "mini-css-extract-plugin": "^1.0.0",
     "rimraf": "^3.0.2",
