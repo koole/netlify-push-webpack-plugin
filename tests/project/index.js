@@ -1,3 +1,3 @@
 import "./style.css";
 
-console.log("Test")
+console.log("Test");

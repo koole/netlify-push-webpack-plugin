@@ -16,16 +16,16 @@ function webpackTest(test, errors, stats) {
   }
 
   // Test if files exist
-  const files = stats.toJson().assets.map(x => x.name);
-  test.true(files.includes('index.html'));
-  test.true(files.includes('main.css'));
-  test.true(files.includes('bundle.js'));
-  test.true(files.includes('_headers'));
+  const files = stats.toJson().assets.map((x) => x.name);
+  test.true(files.includes("index.html"));
+  test.true(files.includes("main.css"));
+  test.true(files.includes("bundle.js"));
+  test.true(files.includes("_headers"));
 }
 
-test.cb("Both JS and CSS files in headers", t => {
-  webpack(all_options, function(e, s) {
-    webpackTest(t, e, s)
+test.cb("Both JS and CSS files in headers", (t) => {
+  webpack(all_options, function (e, s) {
+    webpackTest(t, e, s);
 
     const contents = fs.readFileSync("tests/all/dist/_headers", "utf8");
     const expected = fs.readFileSync("tests/all/_headers", "utf8");
@@ -35,9 +35,9 @@ test.cb("Both JS and CSS files in headers", t => {
   });
 });
 
-test.cb("Only CSS files in headers", t => {
-  webpack(css_options, function(e, s) {
-    webpackTest(t, e, s)
+test.cb("Only CSS files in headers", (t) => {
+  webpack(css_options, function (e, s) {
+    webpackTest(t, e, s);
 
     const contents = fs.readFileSync("tests/css/dist/_headers", "utf8");
     const expected = fs.readFileSync("tests/css/_headers", "utf8");
@@ -47,9 +47,9 @@ test.cb("Only CSS files in headers", t => {
   });
 });
 
-test.cb("Only JS files in headers", t => {
-  webpack(js_options, function(e, s) {
-    webpackTest(t, e, s)
+test.cb("Only JS files in headers", (t) => {
+  webpack(js_options, function (e, s) {
+    webpackTest(t, e, s);
 
     const contents = fs.readFileSync("tests/js/dist/_headers", "utf8");
     const expected = fs.readFileSync("tests/js/_headers", "utf8");
@@ -59,9 +59,9 @@ test.cb("Only JS files in headers", t => {
   });
 });
 
-test.cb("With custom headers in config", t => {
-  webpack(custom_headers_options, function(e, s) {
-    webpackTest(t, e, s)
+test.cb("With custom headers in config", (t) => {
+  webpack(custom_headers_options, function (e, s) {
+    webpackTest(t, e, s);
 
     const contents = fs.readFileSync(
       "tests/custom_headers/dist/_headers",
@@ -75,7 +75,7 @@ test.cb("With custom headers in config", t => {
 });
 
 // Remove dist folders after running tests
-test.after.always('cleanup', t => {
+test.after.always("cleanup", (t) => {
   rimraf.sync("tests/all/dist");
   rimraf.sync("tests/css/dist");
   rimraf.sync("tests/js/dist");

@@ -7,7 +7,7 @@ module.exports = {
   entry: "./tests/project/index.js",
   output: {
     path: __dirname + "/dist",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     rules: [
@@ -17,16 +17,13 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              // you can specify a publicPath here
-              // by default it uses publicPath in webpackOptions.output
               publicPath: "../",
-              hmr: process.env.NODE_ENV === "development"
-            }
+            },
           },
-          "css-loader"
-        ]
-      }
-    ]
+          "css-loader",
+        ],
+      },
+    ],
   },
   plugins: [
     new MiniCssExtractPlugin(),
@@ -37,9 +34,9 @@ module.exports = {
         "  X-Frame-Options: DENY",
         "  Referrer-Policy: strict-origin-when-cross-origin",
         "/assets/*",
-        "  Cache-Control: public, max-age:360000"
+        "  Cache-Control: public, max-age:360000",
       ],
-      include: "all"
-    })
-  ]
+      include: "all",
+    }),
+  ],
 };
